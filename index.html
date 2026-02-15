@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mutation Impact Analyzer with Basic Machine Learning Prediction</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-     Updated Text
+  <main class="container">
+    <h1>Mutation Impact Analyzer</h1>
+    <p class="subtitle">Compare DNA sequences, inspect protein impact, and estimate mutation risk with a lightweight ML-style predictor.</p>
+
+    <section class="panel">
+      <h2>Input Sequences</h2>
+      <label for="originalSequence">Original DNA Sequence</label>
+      <textarea id="originalSequence" rows="4" placeholder="Example: ATGGAACTTTAA"></textarea>
+
+      <label for="mutatedSequence">Mutated DNA Sequence</label>
+      <textarea id="mutatedSequence" rows="4" placeholder="Example: ATGGAATTTTAA"></textarea>
+
+      <button id="analyzeBtn">Analyze Mutation</button>
+      <p id="error" class="error" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" id="results" hidden>
+      <h2>Analysis Result</h2>
+
+      <div class="grid">
+        <article>
+          <h3>Sequence Comparison</h3>
+          <p><strong>Total differences:</strong> <span id="differenceCount"></span></p>
+          <p><strong>Detected mutation types:</strong> <span id="mutationTypes"></span></p>
+          <ul id="differenceList"></ul>
+        </article>
+
+        <article>
+          <h3>DNA → Protein Translation</h3>
+          <p><strong>Original Protein:</strong> <span id="originalProtein"></span></p>
+          <p><strong>Mutated Protein:</strong> <span id="mutatedProtein"></span></p>
+          <p><strong>Protein-level effect:</strong> <span id="proteinEffect"></span></p>
+        </article>
+
+        <article>
+          <h3>ML Prediction</h3>
+          <p><strong>Prediction:</strong> <span id="predictionLabel"></span></p>
+          <p><strong>Risk score:</strong> <span id="predictionScore"></span></p>
+          <ul id="featureList"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
